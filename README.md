@@ -1,4 +1,4 @@
-**Basic project on the Django framework**
+**Blog_about_famous_women project on the Django framework**
 ---
 * Django reference project to start development of other projects.*
 ---
