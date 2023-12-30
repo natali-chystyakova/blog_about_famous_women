@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,14 +51,17 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
 ]
 LOCAL_APPS = [
     "apps.user",
     "apps.base",
+    "apps.women",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
+    "captcha",
 ]
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -69,6 +73,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 USE_EXTRA_MIDDLEWARES = env.bool("CUSTOM__USE_EXTRA_MIDDLEWARES", False)
@@ -170,3 +175,16 @@ LOGOUT_REDIRECT_URL = "root:index"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # SESSION_SAVE_EVERY_REQUEST = True
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+# Filesystem caching
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        # "LOCATION": "/var/tmp/django_cache",
+        "LOCATION": os.path.join(BASE_DIR, "blog_about_famous_women"),
+    }
+}
