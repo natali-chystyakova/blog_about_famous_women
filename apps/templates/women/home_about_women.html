@@ -1,0 +1,102 @@
+{% extends "_helpers/_base.html" %}
+{% load women_tags %}
+{%  block title %}
+
+    Women
+{%  endblock  %}
+
+{#{% block content %}#}
+{#    <table class="table-content" border=0 cellpadding="0" cellspacing="0">#}
+{#<tr>#}
+{#<!-- Sidebar слева -->#}
+{#	<td valign="top" class="left-chapters">#}
+{##}
+{#        {% getcats filter=1 %}#}
+{##}
+{#        <ul id="leftchapters">#}
+{##}
+{#    {% if cat_selected == 0 %}#}
+{#        <li class="selected"> Все категории</li>#}
+{#    {% else %}#}
+{#        <li><a href="{% url "women:about_women" %}">Все категории </a> </li>#}
+{#    {% endif %}#}
+{##}
+{#    {% for c in categories %}#}
+{#        {% if c.pk == cat_selected %}#}
+{#            <li class = "selected">{{ c.name }}</li>#}
+{#        {% else %}#}
+{#            <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+{#    {% show_categories "name" cat_selected %}#}
+{##}
+{##}
+{#	</ul>#}
+{#</td>#}
+{#<!-- Конец Sidebar'а -->#}
+{#<td valign="top" class="content">#}
+{##}
+{##}
+{#<!-- Блок контента -->#}
+{#	<div class="content-text">#}
+{##}
+{#        <h1>{{ title}}</h1>#}
+{#    <ul class="list-articles">#}
+{#    {% for p in posts %}#}
+{#        <li><div class="article-panel">#}
+{#            <p class = "first">Категория:{{ p.cat }}</p>#}
+{#            <p class = "last">Дата:{{ p.time_update|date:"d-m-Y H:i:s" }}</p>#}
+{#        </div>#}
+{#        {% if p.photo %}#}
+{#            <p><img class="img-article-left thumb" src="{{ p.photo.url }}"></p>#}
+{#        {% endif %}#}
+{##}
+{#        <h2>{{ p.title }}</h2>#}
+{#    {% autoescape off %}#}
+{#        <p>{{ p.content|linebreaks|truncatewords:50 }}</p>#}
+{#    {% endautoescape %}#}
+{#        <hr>#}
+{#        <div class="clear"></div>#}
+{#			<p class="link-read-post"><a href="{{  p.get_absolute_url }}">Читать пост</a></p>#}
+{#        </li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#	</div>#}
+{#<!-- Конец блока контента -->#}
+
+{#</td></tr></table>#}
+
+
+
+
+
+
+
+{#{% endblock content %}#}
+
+{% block content %}
+    <h1>{{ title}}</h1>
+
+<ul class="list-articles">
+	{% for p in posts %}
+{#    {% for p in object_list %} # для класса  по умолчанию #}
+        <li><div class="article-panel">
+            <p class = "first">Категория:{{ p.cat }}</p>
+            <p class = "last">Дата:{{ p.time_update|date:"d-m-Y H:i:s" }}</p>
+        </div>
+        {% if p.photo %}
+            <p><img class="img-article-left thumb" src="{{ p.photo.url }}"></p>
+        {% endif %}
+
+        <h2>{{ p.title }}</h2>
+
+    {% autoescape off %}
+        <p>{{ p.content|linebreaks|truncatewords:50 }}</p>
+    {% endautoescape %}
+        <hr>
+        <div class="clear"></div>
+			<p class="link-read-post"><a href="{{  p.get_absolute_url }}">Читать пост</a></p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
