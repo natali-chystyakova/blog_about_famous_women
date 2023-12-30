@@ -29,6 +29,11 @@ class RegisterUserForm(UserCreationForm):
         )
 
 
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(label="Username", widget=forms.TextInput(attrs={"class": "form-input"}))
+    password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={"class": "form-input"}))
+
+
 class SignUpView(CreateView):
     # form_class = UserCreationForm
     form_class = RegisterUserForm
@@ -42,7 +47,7 @@ class SignUpView(CreateView):
 
 
 class LoginUser(LoginView):
-    form_class = AuthenticationForm
+    form_class = LoginUserForm
     template_name = "registration/login.html"
 
 
