@@ -21,14 +21,23 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 
+from apps.women.views import page_not_found
+
 urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path("admin/", admin.site.urls),
     path("user/", include("apps.user.urls")),
     path("about/", include("apps.base.urls")),
     path("", include("apps.base.urls_root")),
+    path("women/", include("apps.women.urls")),
+    path("captcha/", include("captcha.urls")),
 ]
 
+handler404 = page_not_found
 
 if settings.DEBUG:
+    urlpatterns = [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ] + urlpatterns
+
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
