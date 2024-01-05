@@ -1,19 +1,20 @@
 {% extends "_helpers/_base.html" %}
 {% load women_tags %}
 {%  block title %}
+    {{ title }}
 
-    Обратная связь
 {%  endblock  %}
 {% block content %}
-<h1>{{ title }}</h1>
-<form  method="post" >
-        {% csrf_token %}
-{#        {{ form.as_p }}#}
-        <div class="form-error">{{ form.non_field_errors }}</div>
-        {% for f in form %}
-    <p><label class = 'form-label' for="{{f.id_for_label}}">{{ f.label }}:</label> {{ f }}</p>
-    <div class="form-error">{{ f.errors }}</div>
-    {% endfor %}
-    <button type="submit"> Отправить </button>
-</form>
+    <article>
+        <h1>{{ title }}</h1>
+        <form  method="post" >
+                {% csrf_token %}
+                <div class="form-error">{{ form.non_field_errors }}</div>
+                {% for f in form %}
+            <p><label class = 'form-label' for="{{f.id_for_label}}">{{ f.label }}:</label> {{ f }}</p>
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit"> Отправить </button>
+        </form>
+    </article>
 {% endblock %}

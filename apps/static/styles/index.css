@@ -60,7 +60,7 @@ height: auto;
 
 
 
-
+/*-------GLOBAL CSS-----------*/
 html, body {
 	font-family: 'Arial';
 	margin: 0;
@@ -68,6 +68,7 @@ html, body {
 	height: 100%;
 	width: 100%;
 	color: #444;
+	padding: .5rem 2rem;
 }
 
 a {
@@ -80,6 +81,51 @@ a:hover {
 }
 
 img {max-width: 600px; height: auto;}
+
+
+/*-------HEADER-----------*/
+.navbar {
+	justify-content: space-between;
+}
+.navbar-nav .last {
+	align-self: flex-end;
+}
+
+.user-profile-data {
+	margin-bottom: 0;
+}
+.user-profile-data li {
+	display: flex;
+	align-items: center;
+}
+.user-profile-data li p {
+	margin-bottom: 0;
+}
+
+/*-------CONTENT AREA-----------*/
+.content-area {
+	display: flex;
+}
+
+
+/*-------SIDEBAR-----------*/
+.content-area .sidebar {
+	padding: 1.5rem;
+}
+.content-area .sidebar ul {
+	list-style-type: none;
+}
+.content-area .sidebar ul li {
+	font-size: 1.2rem;
+	padding: 0 .5rem;
+	cursor: pointer;
+}
+.content-area .sidebar ul li a:hover {
+	background-color: rgba(100,100,100, .1);
+}
+.content-area .sidebar ul li a {
+	text-decoration: none;
+}
 
 img.img-article-left {
 	max-width: 300px;
@@ -231,6 +277,7 @@ div.button {
 }
 .left-chapters ul {
 	width: 230px;
+
 	min-height: 100%;
 	margin: 0;
 	padding: 20px 10px 10px 20px;
@@ -266,11 +313,24 @@ div.button {
 	background: url('../images/share_yt.png') no-repeat 0 -30px
 }
 
+/*.content {*/
+/*	padding: 40px 20px 20px 40px;*/
+/*	width: 100%;*/
+/*	box-sizing: border-box;*/
+
+
+/*}*/
 .content {
-	padding: 40px 20px 20px 40px;
-	width: 100%;
-	box-sizing: border-box;
+    padding: 40px 20px 20px 40px;
+    width: 80%; /* Задаем ширину контента */
+    box-sizing: border-box;
+    margin: 0 auto; /* Центрируем контент по горизонтали */
 }
+
+
+
+
+
 
 ul.breadcrumbs {
 	margin: 0;
@@ -453,3 +513,23 @@ ul.lang-list li a:hover {color: #fdc073;}
     min-width: 200px;
     font-size: 16px;
 }
+
+.table-content {
+        width: 100%; /* Ширина таблицы занимает всю доступную ширину */
+    }
+
+    .left-chapters {
+        width: 20%; /* Левая часть (навбар) занимает 20% ширины */
+        float: left; /* Слева от контента */
+    }
+
+    .content {
+        width: 80%; /* Контент занимает 80% ширины */
+        float: left; /* Слева от левой части */
+        text-align: center; /* Контент по центру */
+    }
+
+    .content-text {
+        margin: 0 auto; /* Центрируем содержимое внутри блока */
+        width: 80%; /* Задаем ширину контента внутри блока */
+    }
