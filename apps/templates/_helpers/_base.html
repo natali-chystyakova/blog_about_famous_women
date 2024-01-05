@@ -16,7 +16,7 @@
 
     >
     <script
-            src="{% static "bootstrap/js/bootstrap.min.js" %}"
+            src="{% static "bootstrap/js/bootstrap.bundle.min.js" %}"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"
     ></script>
@@ -29,17 +29,23 @@
     {# [connect_bootstrap]-[END] #}
 </head>
 <body>
-<div class="container-fluid">
+{#   HEADER    #}
     {% include "_helpers/_header.html" %}
+
+<div class="content-area">
+{#   SIDEBAR    #}
+    {% include "_helpers/_sidebar.html" %}
+
+{#   CONTENT    #}
     {% block content %}
         Hello!
+
     {% endblock %}
+</div>
 
-     {% include "_helpers/paginator_include.html" %}
 
+{#   FOOTER   #}
     {% include "_helpers/_footer.html" %}
 
-
-</div>
 </body>
 </html>
