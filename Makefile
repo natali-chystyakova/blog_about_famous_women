@@ -53,6 +53,7 @@ init-config-i-project:
 	@cp .env.project .env &&\
 		cp docker-compose.override.project.yml docker-compose.override.yml
 
+.PHONY: project-i-run
 # Run project.
 project-i-run:
 	@python manage.py runserver

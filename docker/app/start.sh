@@ -12,7 +12,7 @@ set -o nounset
 set -o xtrace
 # [bash_init]-[END]
 
-# Apply database migrations.
+# Apply migrations
 make migrate
 
 # Run application.
