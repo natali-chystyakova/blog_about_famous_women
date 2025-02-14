@@ -8,7 +8,7 @@ from apps.women.models import Woman, Category
 # Register your models here.
 @admin.register(Woman)
 class WomanAdmin(admin.ModelAdmin):
-    list_display = ["id", "title", "content", "get_html_photo", "time_create", "time_update", "is_published"]
+    list_display = ["id", "title", "content", "get_html_photo", "time_create", "time_update", "is_published", "user"]
     list_display_links = ("id", "title")  # какие поля будут ссылками
     list_editable = ["content", "is_published"]
     search_fields = ["title", "content"]  # по каким полям можно искать
