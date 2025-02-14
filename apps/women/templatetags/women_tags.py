@@ -1,9 +1,11 @@
 from django import template
 from apps.women.models import Category
 
+# создание обьекта класса Libraryдля регистрации наших новых тегов
 register = template.Library()
 
 
+# Функция возвращает категории для постов
 @register.simple_tag(name="getcats")
 def get_categories(filter=None):
     if not filter:
